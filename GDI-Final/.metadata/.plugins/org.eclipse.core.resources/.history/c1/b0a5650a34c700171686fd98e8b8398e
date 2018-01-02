@@ -1,0 +1,37 @@
+package com.gdi.locators;
+
+import org.openqa.selenium.WebElement;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class HomePage {
+
+	public static WebElement search(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("navigationBar_search");
+	}
+	
+	public static WebElement tag(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("navigationBar_tag");
+	}
+	
+	public static WebElement storeLocator(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("navigationBar_storeFinder");
+	}
+	
+	public static WebElement shoppingCart(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("navigationBar_cart");
+	}
+	
+	public static WebElement shopModule(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("homeScreen_tab_shop");
+	}
+	
+	public static WebElement offersModule(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("homeScreen_tab_offers");
+	}
+	
+	public static WebElement offersModule(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("homeScreen_tab_loyalty");
+	}
+	
+}

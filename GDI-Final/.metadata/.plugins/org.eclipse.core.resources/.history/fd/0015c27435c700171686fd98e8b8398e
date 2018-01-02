@@ -1,0 +1,33 @@
+package com.gdi.testscenarios;
+
+import com.gdi.locators.CreateNewAccountLocators;
+import com.gdi.locators.HomePage;
+import com.gdi.locators.LoginPageLocators;
+import com.gdi.useractions.ActionImplementation;
+import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class VerifyElementsOnHomePage {
+	
+		private static AndroidDriver androidDriver;
+		private static ExtentTest testReport;
+		
+		public VerifyElementsOnHomePage(AndroidDriver androidDriver, ExtentTest testReport) throws InterruptedException{
+			this.androidDriver = androidDriver;
+			this.testReport = testReport;
+			verifyElementsonHomePage();
+		}
+		
+		public static void verifyElementsonHomePage() throws InterruptedException{
+			
+			ActionImplementation.wait(androidDriver, HomePage.shopWait(), testReport);
+			String expText = "";
+			ActionImplementation.click(CreateNewAccountLocators.createAccount(androidDriver), testReport);
+			ActionImplementation.verifyTextOfElement(CreateNewAccountLocators.temsAndConditions(androidDriver), expText, testReport);
+			String exptext1 = "Join to earn badges and collect rewards.";
+			ActionImplementation.verifyTextOfElement(LoginPageLocators.joinToEarnStaticText(androidDriver), exptext1, testReport);
+
+		}
+
+}

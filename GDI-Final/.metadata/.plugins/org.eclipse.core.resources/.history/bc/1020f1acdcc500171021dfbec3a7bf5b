@@ -1,0 +1,47 @@
+package com.gdi.useractions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.server.handler.FindElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class ActionImplementation {
+	
+	public static void click(WebElement ele, ExtentTest testReport){
+		try{
+			ele.click();
+			testReport.log(LogStatus.PASS, "Successfully clicked on the button");	
+		}
+		catch(Exception e){
+			testReport.log(LogStatus.FAIL, "DIDNT clicked on the button");	
+		}
+	}
+	
+	public static void sendKeys(WebElement ele, String keys, ExtentTest testReport){
+		try{
+			ele.sendKeys(keys, Keys.ENTER);
+			testReport.log(LogStatus.PASS, "Successfully entered on the key");	
+		}
+		catch(Exception e){
+			testReport.log(LogStatus.FAIL, "DIDNT enter the key");	
+		}
+	}
+	
+	public static void wait(AndroidDriver driver, String xpath, ExtentTest testReport){
+		try{
+			WebDriverWait wait = new WebDriverWait(driver,20);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//android.widget.TextViewp[@conent-disc='loginScreen_createAccountSelectorButton']")));
+			testReport.log(LogStatus.PASS, "element present");	
+		}
+		catch(Exception e){
+			testReport.log(LogStatus.FAIL, "element not present");	
+		}
+	}
+}

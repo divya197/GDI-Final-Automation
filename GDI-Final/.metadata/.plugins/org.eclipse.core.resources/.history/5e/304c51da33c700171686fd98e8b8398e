@@ -1,0 +1,29 @@
+package com.gdi.locators;
+
+import org.openqa.selenium.WebElement;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class HomePage {
+
+	public static WebElement search(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("navigationBar_search");
+	}
+	
+	public static WebElement tag(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("navigationBar_tag");
+	}
+	
+	public static WebElement storeLocator(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("navigationBar_storeFinder");
+	}
+	
+	public static WebElement storeLocator(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("navigationBar_cart");
+	}
+	
+	public static WebEelement shopModule(){
+		return "//android.widget.TextViewp[@conent-disc='loginScreen_createAccountSelectorButton']";
+	}
+	
+}

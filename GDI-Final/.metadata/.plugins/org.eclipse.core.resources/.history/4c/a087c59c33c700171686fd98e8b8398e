@@ -1,0 +1,19 @@
+package com.gdi.locators;
+
+import org.openqa.selenium.WebElement;
+
+public class HomePage {
+
+	public static WebElement search(){
+		return androidDriver.findElementByAccessibilityId("loginScreen_emailContainer");
+	}
+	
+	public static WebEelement shopModule(){
+		return "//android.widget.TextViewp[@conent-disc='loginScreen_createAccountSelectorButton']";
+	}
+	
+	public static WebEelement shopModule(){
+		return "//android.widget.TextViewp[@conent-disc='loginScreen_createAccountSelectorButton']";
+	}
+	
+}

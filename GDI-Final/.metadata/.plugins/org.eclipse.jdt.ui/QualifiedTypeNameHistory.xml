@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.gdi.helpers.Excel"/>
+<fullyQualifiedTypeName name="io.appium.java_client.remote.MobileCapabilityType"/>
+<fullyQualifiedTypeName name="io.appium.java_client.remote.MobilePlatform"/>
+<fullyQualifiedTypeName name="com.gdi.helpers.Property"/>
+<fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+<fullyQualifiedTypeName name="com.gdi.functionality.FuctionalityMapper"/>
+<fullyQualifiedTypeName name="com.gdi.functionality.LoginPage"/>
+<fullyQualifiedTypeName name="com.relevantcodes.extentreports.LogStatus"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.Keys"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.WebDriverWait"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.support.ui.ExpectedConditions"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.remote.server.handler.FindElement"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.gdi.functionality.CreateNewAccount"/>
+<fullyQualifiedTypeName name="com.relevantcodes.extentreports.ExtentTest"/>
+<fullyQualifiedTypeName name="io.appium.java_client.android.AndroidDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebElement"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="com.gdi.useractions.ActionImplementation"/>
+<fullyQualifiedTypeName name="com.gdi.testscenarios.CreateNewAccount"/>
+<fullyQualifiedTypeName name="com.gdi.locators.CreateNewAccountLocators"/>
+<fullyQualifiedTypeName name="com.gdi.testscenarios.CheckBannerLogo_Terms_Conditions"/>
+<fullyQualifiedTypeName name="com.gdi.testscenarios.SkipLogin"/>
+<fullyQualifiedTypeName name="com.gdi.locators.LoginPageLocators"/>
+</qualifiedTypeNameHistroy>

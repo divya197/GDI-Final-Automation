@@ -1,0 +1,81 @@
+package com.gdi.useractions;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class ActionImplementation {
+	
+	public static String userID;
+	
+	public static void click(WebElement ele, ExtentTest testReport){
+		try{
+			ele.click();
+			testReport.log(LogStatus.PASS, "Successfully clicked on the button");	
+		}
+		catch(Exception e){
+			testReport.log(LogStatus.FAIL, "DIDNT clicked on the button");	
+		}
+	}
+	
+	public static void sendKeys(WebElement ele, String keys, ExtentTest testReport){
+		try{
+			ele.sendKeys(keys);
+			testReport.log(LogStatus.PASS, "Successfully entered on the key");	
+		}
+		catch(Exception e){
+			testReport.log(LogStatus.FAIL, "DIDNT enter the key");	
+		}
+	}
+	
+	public static void wait(AndroidDriver driver, String xpath, ExtentTest testReport){
+		try{
+			WebDriverWait wait = new WebDriverWait(driver,30);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+			testReport.log(LogStatus.PASS, "element present");	
+		}
+		catch(Exception e){
+			testReport.log(LogStatus.FAIL, "element not present");	
+		}
+	}
+	
+	public static String getUniqueUsenName(AndroidDriver driver){
+	
+			DateFormat dateFormat = new SimpleDateFormat("MMddyyHHmmss");
+	  		Date date = new Date();
+	  		userID= dateFormat.format(date)+"@test.com";
+	  		return  userID;
+	
+	}
+	
+	public static void verifyTextOfElement(WebElement ele, String expectedText, ExtentTest testReport){
+		
+		if(ele.getText().equals(expectedText)){
+			testReport.log(LogStatus.PASS, "element text present");	
+		}
+		else{
+			testReport.log(LogStatus.FAIL, "element text not present");	
+		}
+
+	}
+	
+	public static void verifyPresenceOfElement(WebElement ele, ExtentTest testReport){
+		
+		if(ele.isDisplayed()){
+			
+		}
+		else{
+			
+		}
+
+	}
+}

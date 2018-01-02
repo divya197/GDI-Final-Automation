@@ -1,0 +1,16 @@
+package com.gdi.useractions;
+
+import com.gdi.functionality.LoginPage;
+import io.appium.java_client.android.AndroidDriver;
+
+public class ActionMapper {
+	
+	public static void executeFunction(String functionName, AndroidDriver androidDriver){
+		if(functionName.equalsIgnoreCase("login"))
+		{
+			LoginPage login=new LoginPage(androidDriver);
+		}
+		
+	}
+	
+}

@@ -1,0 +1,26 @@
+package com.gdi.testscenarios;
+
+import com.gdi.locators.LoginPageLocators;
+import com.gdi.useractions.ActionImplementation;
+import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class SkipLogin {
+	private static AndroidDriver androidDriver;
+	private static ExtentTest testReport;
+	
+	public SkipLogin(AndroidDriver androidDriver, ExtentTest testReport) throws InterruptedException{
+		this.androidDriver = androidDriver;
+		this.testReport = testReport;
+		skipLogin();
+	}
+	
+	public static void skipLogin() throws InterruptedException{
+		
+		ActionImplementation.wait(androidDriver, LoginPageLocators.createAccountForWait(), testReport);
+		ActionImplementation.sendKeys(LoginPageLocators.skipforNowLink(androidDriver), ActionImplementation.userID, testReport);
+
+	}
+
+}

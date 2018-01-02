@@ -1,0 +1,35 @@
+package com.gdi.functionality;
+
+import com.gdi.locators.LoginPageLocators;
+import com.gdi.useractions.ActionImplementation;
+import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class Login {
+	
+		private static AndroidDriver androidDriver;
+		private static ExtentTest testReport;
+		
+		public Login(AndroidDriver androidDriver, ExtentTest testReport) throws InterruptedException{
+			this.androidDriver = androidDriver;
+			this.testReport = testReport;
+			createNewAccount();
+		}
+		
+		public static void createNewAccount() throws InterruptedException{
+			
+			ActionImplementation.wait(androidDriver, LoginPageLocators.createAccountForWait(), testReport);
+			ActionImplementation.sendKeys(LoginPageLocators.enterYourEmail(androidDriver), ActionImplementation.getUniqueUsenName(androidDriver), testReport);
+			ActionImplementation.click(LoginPageLocators.joinToEarnStaticText(androidDriver), testReport);
+			ActionImplementation.sendKeys(CreateNewAccountLocators.enterYourPassword(androidDriver), "Qwerty123$", testReport);
+			ActionImplementation.click(CreateNewAccountLocators.joinToEarnStaticText(androidDriver), testReport);
+			ActionImplementation.click(CreateNewAccountLocators.letsGoButton(androidDriver), testReport);
+			ActionImplementation.wait(androidDriver, CreateNewAccountLocators.notifyMeWait(androidDriver), testReport);
+			ActionImplementation.click(CreateNewAccountLocators.notifyMeButton(androidDriver), testReport);
+			ActionImplementation.wait(androidDriver, CreateNewAccountLocators.useMyLocationWait(androidDriver), testReport);
+//			ActionImplementation.click(CreateNewAccountLocators.useMyLocationButton(androidDriver), testReport);
+		}
+	}
+
+}

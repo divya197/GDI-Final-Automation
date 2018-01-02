@@ -1,0 +1,40 @@
+package com.gdi.testscenarios;
+
+import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class TestScenarioMapper {
+	
+	public static void executeFunction(String functionName, AndroidDriver androidDriver, ExtentTest testReport) throws InterruptedException{
+		if(functionName.equalsIgnoreCase("createnewaccount"))
+		{
+			CreateNewAccount createnewaccount=new CreateNewAccount(androidDriver, testReport);
+		}
+		if(functionName.equalsIgnoreCase("login"))
+		{
+			Login login=new Login(androidDriver, testReport);
+		}
+		if(functionName.equalsIgnoreCase("CheckBannerLogoAndTermsAndConditions"))
+		{
+			ValidateLoginPage cblt = new ValidateLoginPage(androidDriver, testReport);
+		}
+		if(functionName.equalsIgnoreCase("skipLogin"))
+		{
+			SkipLogin cblt = new SkipLogin(androidDriver, testReport);
+		}
+		if(functionName.equalsIgnoreCase("LoginwithWrongPwd"))
+		{
+			LoginWithExistingAccountWrongPwd loginwithwrongpwd = new LoginWithExistingAccountWrongPwd(androidDriver, testReport);
+		}
+		if(functionName.equalsIgnoreCase("createAccountWithInvalidPassword"))
+		{
+			CreateAccountWithInvalidPassword cwip = new CreateAccountWithInvalidPassword(androidDriver, testReport);
+		}
+		if(functionName.equalsIgnoreCase("HomePageElemenets"))
+		{
+			CreateAccountWithInvalidPassword cwip = new CreateAccountWithInvalidPassword(androidDriver, testReport);
+		}
+		
+	}
+}

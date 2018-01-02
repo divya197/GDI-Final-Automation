@@ -1,0 +1,60 @@
+package com.gdi.locators;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import io.appium.java_client.android.AndroidDriver;
+
+//"""GDI_TC2>>>>row 9"""
+public class CreateNewAccountLocators {
+		
+	public static String useMyLocationWait(AndroidDriver androidDriver){
+		return "//android.widget.TextView[@text='USE MY LOCATION']";
+	}
+	
+	public static String createAccountForWait(){
+		return "//android.widget.TextViewp[@conent-disc='loginScreen_createAccountSelectorButton']";
+	}
+	
+	public static String notifyMeWait(AndroidDriver androidDriver){
+		return "//android.widget.TextView[@text='NOTIFY ME']";
+	}
+	
+	public static String temsAndConditions(AndroidDriver androidDriver){
+		return "//android.widget.TextView[@text='Password must be at least 6 characters, contain upper and lower case letters and at least 1 number']";
+	}
+	
+	public static WebElement createAccount(AndroidDriver androidDriver){
+//		return androidDriver.findElement(By.xpath("//android.view.ViewGroup[@content-desc='loginScreen_createAccountSelectorButton']")).findElements(By.className("android.widget.TextView")).get(0);
+		return androidDriver.findElementByAccessibilityId("loginScreen_createAccountSelectorButton");
+	}
+	
+	public static WebElement enterYourEmail(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("loginScreen_emailContainer").findElement(By.className("android.view.ViewGroup")).findElement(By.className("android.widget.EditText"));
+	}
+	
+	public static WebElement enterYourPassword(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("loginScreen_passwordContainer").findElements(By.className("android.view.ViewGroup")).get(0).findElement(By.className("android.widget.EditText"));
+	}
+	
+	public static WebElement joinToEarnStaticText(AndroidDriver androidDriver){
+		return androidDriver.findElement(By.xpath("//android.widget.TextView[@text='Join to earn badges and collect rewards.']"));
+	}
+	
+	public static WebElement letsGoButton(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("loginScreen_loginContainer").findElements(By.className("android.view.ViewGroup")).get(0);
+	}
+	
+	public static WebElement notifyMeButton(AndroidDriver androidDriver){
+		return androidDriver.findElement(By.xpath("//android.widget.TextView[@text='NOTIFY ME']"));
+	}
+	
+	public static WebElement useMyLocationButton(AndroidDriver androidDriver){
+		return androidDriver.findElement(By.xpath("//android.widget.TextView[@text='USE MY LOCATION']"));
+	}
+	
+	public static WebElement temsAndConditions(AndroidDriver androidDriver){
+		return androidDriver.findElementByAccessibilityId("loginScreen_forgotPasswordContainer").findElement(By.className("android.widget.TextView"));
+	}
+	
+}

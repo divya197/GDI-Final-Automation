@@ -1,0 +1,10 @@
+package com.gdi.testexecutor;
+
+public interface PathDefiner 
+{
+	public static final String configPptPath = "./Config/config.properties";
+	public static final String scenariosPath = "./TestScenarios/TestScenariosIE-MOD.xlsx"; 
+	public static final String controllerPath = "./Excel/Controller.xlsx";
+	public static final String chromeDriverPath = "./driver/chromedriver.exe";
+	public static final String suiteSheet = "Suite";	
+}

@@ -1,0 +1,30 @@
+package com.gdi.functionality;
+
+public class Login {
+	
+		private static AndroidDriver androidDriver;
+		private static ExtentTest testReport;
+		
+		public Login(AndroidDriver androidDriver, ExtentTest testReport) throws InterruptedException{
+			this.androidDriver = androidDriver;
+			this.testReport = testReport;
+			createNewAccount();
+		}
+		
+		public static void createNewAccount() throws InterruptedException{
+			
+			ActionImplementation.wait(androidDriver, CreateNewAccountLocators.createAccountForWait(), testReport);
+			ActionImplementation.click(CreateNewAccountLocators.createAccount(androidDriver), testReport);
+			ActionImplementation.sendKeys(CreateNewAccountLocators.enterYourEmail(androidDriver), ActionImplementation.getUniqueUsenName(androidDriver), testReport);
+			ActionImplementation.click(CreateNewAccountLocators.joinToEarnStaticText(androidDriver), testReport);
+			ActionImplementation.sendKeys(CreateNewAccountLocators.enterYourPassword(androidDriver), "Qwerty123$", testReport);
+			ActionImplementation.click(CreateNewAccountLocators.joinToEarnStaticText(androidDriver), testReport);
+			ActionImplementation.click(CreateNewAccountLocators.letsGoButton(androidDriver), testReport);
+			ActionImplementation.wait(androidDriver, CreateNewAccountLocators.notifyMeWait(androidDriver), testReport);
+			ActionImplementation.click(CreateNewAccountLocators.notifyMeButton(androidDriver), testReport);
+			ActionImplementation.wait(androidDriver, CreateNewAccountLocators.useMyLocationWait(androidDriver), testReport);
+//			ActionImplementation.click(CreateNewAccountLocators.useMyLocationButton(androidDriver), testReport);
+		}
+	}
+
+}

@@ -1,0 +1,54 @@
+package com.gdi.testexecutor;
+
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.remote.MobilePlatform;
+
+import com.gdi.functionality.FuctionalityMapper;
+import com.gdi.helpers.Property;
+import java.net.URL;
+
+public class TestExecutor extends BaseDriver
+{
+
+public  String data;
+
+
+@BeforeClass
+public void launchApp() throws MalformedURLException
+{    
+	DesiredCapabilities cap= new DesiredCapabilities();
+	cap.setCapability(MobileCapabilityType.APP, "C://Users//sandeepraju//Documents//GDI-Automation//GDI-Automation//Applications//app-v118-dynamite-ca-internal_qa.apk");
+	cap.setCapability(MobileCapabilityType.PLATFORM_NAME,MobilePlatform.ANDROID);
+	cap.setCapability(MobileCapabilityType.PLATFORM_VERSION,Property.getPropertyValue(PathDefiner.configPath, "version"));
+	cap.setCapability(MobileCapabilityType.DEVICE_NAME,Property.getPropertyValue(PathDefiner.configPath, "device_Name"));
+	androidDriver = new AndroidDriver(new URL("http://0.0.0.0:4725/wd/hub"),cap);
+	cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
+	androidDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+}
+
+
+@Test(dataProvider="getScenarios")
+public void testScenarios(String scenarioSheet, String executionStatus) throws InterruptedException
+{    
+	testReport=eReport.startTest(scenarioSheet);
+	if(executionStatus.equalsIgnoreCase("yes")){
+		FuctionalityMapper.executeFunction(scenarioSheet, androidDriver);
+		
+	}
+	
+	else{
+		System.out.println("fail");
+	}
+}
+
+}
+

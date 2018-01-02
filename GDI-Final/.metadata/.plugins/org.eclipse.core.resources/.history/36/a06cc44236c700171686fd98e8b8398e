@@ -1,0 +1,32 @@
+package com.gdi.testscenarios;
+
+import com.gdi.locators.CreateNewAccountLocators;
+import com.gdi.locators.HomePage;
+import com.gdi.locators.LoginPageLocators;
+import com.gdi.useractions.ActionImplementation;
+import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class VerifyElementsOnHomePage {
+	
+		private static AndroidDriver androidDriver;
+		private static ExtentTest testReport;
+		
+		public VerifyElementsOnHomePage(AndroidDriver androidDriver, ExtentTest testReport) throws InterruptedException{
+			this.androidDriver = androidDriver;
+			this.testReport = testReport;
+			verifyElementsonHomePage();
+		}
+		
+		public static void verifyElementsonHomePage() throws InterruptedException{
+			
+			ActionImplementation.wait(androidDriver, HomePage.shopWait(), testReport);
+			ActionImplementation.verifyPresenceOfElement(HomePage.search(androidDriver), testReport);
+			ActionImplementation.verifyPresenceOfElement(HomePage.tag(androidDriver), testReport);
+			ActionImplementation.verifyPresenceOfElement(HomePage.storeLocator(androidDriver), testReport);
+			ActionImplementation.verifyTextOfElement(LoginPageLocators.joinToEarnStaticText(androidDriver), exptext1, testReport);
+
+		}
+
+}

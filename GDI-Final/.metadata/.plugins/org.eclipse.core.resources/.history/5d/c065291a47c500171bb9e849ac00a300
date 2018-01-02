@@ -1,0 +1,15 @@
+package com.gdi.functionality;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class FuctionalityMapper {
+	
+	public static void executeFunction(String functionName, AndroidDriver driver){
+		if(functionName.equalsIgnoreCase("click"))
+		{
+		lib=new keywordlib();
+		data=lib.click(driver, input1, action,i,testReport);
+		}
+		
+	}
+}

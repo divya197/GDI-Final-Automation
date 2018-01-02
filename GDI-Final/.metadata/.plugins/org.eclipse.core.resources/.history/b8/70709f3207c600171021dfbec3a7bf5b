@@ -1,0 +1,35 @@
+package com.gdi.testscenarios;
+
+import com.gdi.locators.CreateNewAccountLocators;
+import com.gdi.locators.LoginPageLocators;
+import com.gdi.useractions.ActionImplementation;
+import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class CreateAccountWithInvalidPassword {
+	
+	private static AndroidDriver androidDriver;
+	private static ExtentTest testReport;
+	
+	public CreateAccountWithInvalidPassword(AndroidDriver androidDriver, ExtentTest testReport) throws InterruptedException{
+		this.androidDriver = androidDriver;
+		this.testReport = testReport;
+		createAccountWithInvalidPassword();
+	}
+	
+	public static void createAccountWithInvalidPassword() throws InterruptedException{
+		
+		ActionImplementation.wait(androidDriver, CreateNewAccountLocators.createAccountForWait(), testReport);
+		ActionImplementation.click(CreateNewAccountLocators.createAccount(androidDriver), testReport);
+		ActionImplementation.sendKeys(CreateNewAccountLocators.enterYourEmail(androidDriver), ActionImplementation.getUniqueUsenName(androidDriver), testReport);
+		ActionImplementation.click(CreateNewAccountLocators.joinToEarnStaticText(androidDriver), testReport);
+		ActionImplementation.sendKeys(CreateNewAccountLocators.enterYourPassword(androidDriver), "xyz", testReport);
+		ActionImplementation.click(CreateNewAccountLocators.joinToEarnStaticText(androidDriver), testReport);
+		ActionImplementation.click(CreateNewAccountLocators.letsGoButton(androidDriver), testReport);
+		ActionImplementation.wait(androidDriver, CreateNewAccountLocators.notifyMeWait(androidDriver), testReport);
+		ActionImplementation.click(CreateNewAccountLocators.notifyMeButton(androidDriver), testReport);
+		ActionImplementation.wait(androidDriver, CreateNewAccountLocators.useMyLocationWait(androidDriver), testReport);
+			
+	}
+}

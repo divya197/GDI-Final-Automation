@@ -1,0 +1,31 @@
+package com.gdi.useractions;
+
+import org.openqa.selenium.WebElement;
+
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class ActionImplementation {
+	
+	public static void click(WebElement ele, ExtentTest testReport){
+		try{
+			ele.click();
+			testReport.log(LogStatus.PASS, "Successfully clicked on the button");	
+		}
+		catch(Exception e){
+			testReport.log(LogStatus.FAIL, "DIDNT clicked on the button");	
+		}
+	}
+	
+	public static void sendKeys(WebElement ele, String keys, ExtentTest testReport){
+		try{
+			ele.sendKeys(keys);
+			testReport.log(LogStatus.PASS, "Successfully clicked on the button");	
+		}
+		catch(Exception e){
+			testReport.log(LogStatus.FAIL, "DIDNT clicked on the button");	
+		}
+	}
+}

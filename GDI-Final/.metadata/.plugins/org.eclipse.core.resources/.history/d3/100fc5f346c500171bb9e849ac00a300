@@ -1,0 +1,8 @@
+package com.gdi.functionality;
+
+public class FuctionalityMapper {
+	
+	public static void executeFunction(){
+		
+	}
+}

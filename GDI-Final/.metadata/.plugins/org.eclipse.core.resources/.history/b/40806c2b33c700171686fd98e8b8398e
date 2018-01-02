@@ -1,0 +1,9 @@
+package com.gdi.locators;
+
+public class HomePage {
+
+	public static String search(){
+		return "//android.widget.TextViewp[@conent-disc='loginScreen_createAccountSelectorButton']";
+	}
+	
+}

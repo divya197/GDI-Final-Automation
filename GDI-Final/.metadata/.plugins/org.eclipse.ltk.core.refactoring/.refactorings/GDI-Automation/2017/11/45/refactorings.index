@@ -1,0 +1,23 @@
+1510224153706	Delete element
+1510224481889	Rename type 'AutomationConstants'
+1510225014721	Rename type 'DeltaDriver'
+1510225153133	Rename resource 'Excel'
+1510225161354	Delete elements
+1510225166302	Delete elements
+1510225179994	Rename resource 'Controller.xlsx'
+1510225266396	Delete elements
+1510225281172	Rename resource 'driver'
+1510225305917	Rename resource 'apps'
+1510228527428	Delete element
+1510231533257	Delete element
+1510295991041	Rename type 'LoginPage'
+1510296021049	Rename type 'LoginPageLocators'
+1510304764529	Rename package 'com.gdi.functionality'
+1510304795196	Rename type 'FuctionalityMapper'
+1510305054019	Copy compilation unit
+1510305056700	Delete element
+1510305226037	Rename type 'CheckBannerLogin_Terms_Conditions'
+1510309032923	Rename type 'CheckBannerLogo_Terms_Conditions'
+1510310784132	Rename type 'LoginWithExixtingAccountWrongPwd'
+1510440724841	Delete element
+1510441765109	Delete element

@@ -1,0 +1,27 @@
+package com.gdi.functionality;
+
+import com.gdi.locators.LoginPageLocators;
+import com.gdi.useractions.ActionImplementation;
+import com.relevantcodes.extentreports.ExtentTest;
+import io.appium.java_client.android.AndroidDriver;
+
+public class LoginPage {
+
+	private static AndroidDriver androidDriver;
+	private static ExtentTest testReport;
+	
+	public LoginPage(AndroidDriver androidDriver, ExtentTest testReport) throws InterruptedException{
+		this.androidDriver = androidDriver;
+		this.testReport = testReport;
+		login();
+	}
+	
+	public static void login() throws InterruptedException{
+		ActionImplementation.wait(androidDriver, ele, testReport);
+		ActionImplementation.click(LoginPageLocators.createAccount(androidDriver), testReport);
+		ActionImplementation.sendKeys(LoginPageLocators.enterYourEmail(androidDriver), "sandeep1234@ymail.com", testReport);
+		ActionImplementation.click(LoginPageLocators.joinToEarnStaticText(androidDriver), testReport);
+		ActionImplementation.sendKeys(LoginPageLocators.enterYourPassword(androidDriver), "Qwerty123$", testReport);
+		
+	}
+}

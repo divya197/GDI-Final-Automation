@@ -1,0 +1,34 @@
+package com.gdi.testscenarios;
+
+import com.gdi.locators.CreateNewAccountLocators;
+import com.gdi.locators.LoginPageLocators;
+import com.gdi.useractions.ActionImplementation;
+import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class CheckBannerLogo_Terms_Conditions {
+	
+	private static AndroidDriver androidDriver;
+	private static ExtentTest testReport;
+	
+	public CheckBannerLogo_Terms_Conditions(AndroidDriver androidDriver, ExtentTest testReport) throws InterruptedException{
+		this.androidDriver = androidDriver;
+		this.testReport = testReport;
+		verifyBannerLogo_Terms_Conditions();
+	}
+	
+	public static void verifyBannerLogo_Terms_Conditions() throws InterruptedException{
+		
+		ActionImplementation.wait(androidDriver, LoginPageLocators.createAccountForWait(), testReport);
+		String expText = "By creating an account I confirm that I've read and accepted the Terms & Conditions of the loyalty program and to receive communication from Groupe Dynamite. Privacy Policy";
+		ActionImplementation.click(CreateNewAccountLocators.createAccount(androidDriver), testReport);
+		ActionImplementation.verifyTextOfElement(CreateNewAccountLocators.temsAndConditions(androidDriver), expText, testReport);
+		String exptext1 = "Join to earn badges and collect rewards.";
+		ActionImplementation.verifyTextOfElement(LoginPageLocators.joinToEarnStaticText(androidDriver), expText, testReport);
+		ActionImplementation.sendKeys(LoginPageLocators.enterYourPassword(androidDriver), "Qwerty123$", testReport);
+		ActionImplementation.click(LoginPageLocators.joinToEarnStaticText(androidDriver), testReport);
+		ActionImplementation.click(LoginPageLocators.letsGoButton(androidDriver), testReport);
+	}
+
+}

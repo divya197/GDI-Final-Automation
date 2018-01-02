@@ -1,0 +1,82 @@
+package com.gdi.testexecutor;
+
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.SkipException;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import com.relevantcodes.extentreports.LogStatus;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.remote.MobilePlatform;
+
+import com.gdi.helpers.Excel;
+import com.gdi.helpers.Property;
+import java.net.URL;
+
+public class TestExecutor extends BaseDriver
+{
+
+public	ArrayList<String> list;
+public  String data;
+
+
+@BeforeClass
+public void launchApp() throws MalformedURLException
+{    
+	
+	DesiredCapabilities cap= new DesiredCapabilities();
+	cap.setCapability(MobileCapabilityType.APP, PathDefiner.applicationPath);
+	cap.setCapability(MobileCapabilityType.PLATFORM_NAME,MobilePlatform.ANDROID);
+	cap.setCapability(MobileCapabilityType.PLATFORM_VERSION,Property.getPropertyValue(PathDefiner.configPath, "version"));
+	cap.setCapability(MobileCapabilityType.DEVICE_NAME,Property.getPropertyValue(PathDefiner.configPath, "device_Name"));
+	AndroidDriver androidDriver = new AndroidDriver(new URL("http://0.0.0.0:4725/wd/hub"),cap);
+	System.out.println(androidDriver); //need to remove sos
+	cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "100");
+	androidDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+}
+
+
+@Test(dataProvider="getScenarios")
+public void testScenarios(String scenarioSheet, String executionStatus) throws InterruptedException
+{    
+	
+	testReport=eReport.startTest(scenarioSheet);
+	if(executionStatus.equalsIgnoreCase("yes"))
+//    {  
+//    int stepCount = Excel.getRowCount(scenariosPath,scenarioSheet);
+//    
+//    for(int i=1;i<=stepCount;i++)
+//    {
+//    String description = Excel.getCellValue(scenariosPath, scenarioSheet, i, 0);
+//   
+//    String action = Excel.getCellValue(scenariosPath, scenarioSheet, i, 1);
+//    
+//    String input1 = Excel.getCellValue(scenariosPath, scenarioSheet, i, 2);
+//    
+//    String input2 = Excel.getCellValue(scenariosPath, scenarioSheet, i, 3);
+//   
+//    String msg = "DESCRIPTION: "+description+ ", ACTION: "+action+ ", INPUT1: "+input1+ ", INPUT2: "+input2;
+//    testReport.log(LogStatus.INFO,msg);
+//    data=KeyWord.executekeyword(driver, action, input1, input2,i,scenarioSheet,description,testReport,this); 
+//    list.add(i,data);
+//    }
+//    }
+//    else
+//    {
+//    testReport.log(LogStatus.SKIP,"Execution status is 'NO'");
+//    throw new SkipException("Skipping this scenario");
+//    }
+    
+}
+
+}
+

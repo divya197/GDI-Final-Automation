@@ -1,0 +1,20 @@
+package com.gdi.useractions;
+
+import org.openqa.selenium.WebElement;
+
+import com.gdi.functionality.LoginPage;
+import com.relevantcodes.extentreports.ExtentTest;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class ActionMapper {
+	
+	public static void executeAction(String actionName, WebElement ele, ExtentTest testReport){
+		if(actionName.equalsIgnoreCase("click"))
+		{
+			ActionImplementation.click(ele, );
+		}
+		
+	}
+	
+}
